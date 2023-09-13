@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script   src="https://code.jquery.com/jquery-3.7.1.slim.js"   integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="   crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media screen and (max-width: 768px) {
+            html{
+                font-size: 12px;
+            }
+        }
+        .toggle:checked ~ .toggleSwitch span{
+            left: calc(100% - 2.5rem - 0.25rem);
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body class="bg-black m-0 transition-all ease-in text-white">
+    <div class="header flex flex-col w-64 float-left">
+        <div class="profile w-52 p-8 mb-10">
+            <img src="../static/images/profile.jpeg" class="w-32 h-32 rounded-md"/>
+            <p class="text mt-4 text-xl font-bold">Lee Jian</p>
+            <div class="contact">
+                <p class="text-sm">castlelong911@gmail.com</p>
+                <a href="https://www.instagram.com/handsome__tomato/" target="_blank"><img src="../static/images/instagram.svg" class="w-6 float-left"/></a>
+                <a href="https://github.com/CastleLong911" target="_blank"><img src="../static/images/github.svg" class="github w-6 float-left ml-2 invert-0"/></a>
+                <a href="https://castlelong.tistory.com" target="_blank"><img src="../static/images/tistory.svg" class="w-6 float-left ml-2"/></a>
+            </div>
+        </div>
+        <span class="navBorder border-b-2 border-white w-52 ml-8"></span>
+        <div class="ml-8 mt-20 text-3xl nav w-52 flex flex-col justify-evenly h-96">
+            <a href="#" class="w-52"><span class="nav mt-20 font-extrabold">Introduce</span></a>
+            <a href="#" class="w-52"><span class="nav mt-20 font-thin">Career</span></a>
+            <a href="#" class="w-52"><span class="nav mt-20 font-thin">Technics</span></a>
+            <a href="#" class="w-52"><span class="nav mt-20 font-thin">Projects</span></a>
+        </div>
+        <input type="checkbox" class="toggle peer" id="toggle" hidden>
+        <label for="toggle" class="toggleSwitch block relative w-24 h-12 rounded-full bg-white ml-8 mt-20 cursor-pointer group peer-checked:[&>*:first-child]:bg-white peer-checked:[&>*:first-child]:left-[calc(100% - w-10 + left-1)] peer-checked:bg-black">
+            <span class="absolute w-10 h-10 rounded-full bg-black top-1/2 left-1 -translate-y-1/2 transition-all ease-in"></span>
+        </label>
+    </div>
+    <script>
+        $('input[type=checkbox]').change(function(){
+            var a = $(this).prop('checked');
+            if(a){
+                $('.navBorder').removeClass("border-white");
+                $('.navBorder').addClass('border-black');
+                $('body').removeClass("text-white");
+                $('body').addClass('text-black');
+                $('body').removeClass("bg-black");
+                $('body').addClass('bg-white');
+                $('.github').removeClass('invert-0');
+                $('.github').addClass('invert');
+            }
+            else{
+                $('.navBorder').addClass("border-white");
+                $('.navBorder').removeClass('border-black');
+                $('body').addClass("text-white");
+                $('body').removeClass('text-black');
+                $('body').addClass("bg-black");
+                $('body').removeClass('bg-white');
+                $('.github').removeClass('invert');
+                $('.github').addClass('invert-0');
+            }
+        });
+    </script>
+</body>
