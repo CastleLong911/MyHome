@@ -29,10 +29,10 @@
     <title>Document</title>
 </head>
 
-<body class="bg-black m-0 transition-all ease-in text-white">
+<body class="bg-black m-0 transition-all ease-in text-white flex">
     <div class="header flex flex-col w-64 float-left">
-        <div class="profile w-52 p-8 mb-10">
-            <img src="../static/images/profile.jpeg" class="w-32 h-32 rounded-md"/>
+        <div class="w-52 p-8 mb-10">
+            <img src="../static/images/profile1.png" class="profile w-32 h-32 rounded-md border-white border-2"/>
             <p class="text mt-4 text-xl font-bold">Lee Jian</p>
             <div class="contact">
                 <p class="text-sm">castlelong911@gmail.com</p>
@@ -53,10 +53,18 @@
             <span class="absolute w-10 h-10 rounded-full bg-black top-1/2 left-1 -translate-y-1/2 transition-all ease-in"></span>
         </label>
     </div>
+    <div class=" float-left w-full">
+        <span class="text-6xl block my-28 ml-28">Introduce</span>
+        <img src="../static/images/introduce2.png" class="img invert ">
+    </div>
     <script>
         $('input[type=checkbox]').change(function(){
             var a = $(this).prop('checked');
             if(a){
+                $('.img').removeClass("invert");
+                $('.img').addClass("invert-0");
+                $('.profile').removeClass("border-white");
+                $('.profile').addClass('border-black');
                 $('.navBorder').removeClass("border-white");
                 $('.navBorder').addClass('border-black');
                 $('body').removeClass("text-white");
@@ -67,6 +75,10 @@
                 $('.github').addClass('invert');
             }
             else{
+                $('.img').removeClass("invert-0");
+                $('.img').addClass("invert");
+                $('.profile').addClass('border-white');
+                $('.profile').removeClass("border-black");
                 $('.navBorder').addClass("border-white");
                 $('.navBorder').removeClass('border-black');
                 $('body').addClass("text-white");
